@@ -1,10 +1,10 @@
-export default function Options({ options, onClick, totalFeedback, reset }) {
+export default function Options({ elOptions, onClick, totalFeedback, reset }) {
   return (
     <ul>
-      {options.map((option) => (
-        <li key={option}>
-          <button type="button" name={option} onClick={onClick}>
-            {option[0].toUpperCase() + option.slice(1)}
+      {elOptions.map((elOption) => (
+        <li key={elOption}>
+          <button type="button" name={elOption} onClick={onClick}>
+            {elOption[0].toUpperCase() + elOption.slice(1)}
           </button>
         </li>
       ))}

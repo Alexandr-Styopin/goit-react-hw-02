@@ -1,14 +1,14 @@
 export default function Feedback({
-  options,
+  elOptions,
   feedback,
   totalFeedback,
   positiveFeedback,
 }) {
   return (
     <ul>
-      {options.map((option) => (
-        <li key={option}>
-          {option[0].toUpperCase() + option.slice(1)}: {feedback[option]}
+      {elOptions.map((elOption) => (
+        <li key={elOption}>
+          {elOption[0].toUpperCase() + elOption.slice(1)}: {feedback[elOption]}
         </li>
       ))}
 
