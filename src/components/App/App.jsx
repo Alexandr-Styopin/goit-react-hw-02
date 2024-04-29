@@ -4,6 +4,7 @@ import Options from "../Options/Options";
 import Feedback from "../Feedback/Feedback";
 import Notification from "../Notification/Notification";
 import css from "../App/App.module.css";
+import Description from "../Description/Description";
 
 function App() {
   const [feedback, setFeedback] = useState(() => {
@@ -13,7 +14,7 @@ function App() {
       bad: 0,
     };
 
-    const getFeedback = window.localStorage.getItem("save - feedback");
+    const getFeedback = window.localStorage.getItem("saveFeedback");
 
     if (getFeedback !== null) {
       return JSON.parse(getFeedback);
@@ -23,8 +24,8 @@ function App() {
   });
 
   useEffect(() => {
-    const setFeedback = window.localStorage.setItem(
-      "save - feedback",
+    const seveFeedback = window.localStorage.setItem(
+      "saveFeedback",
       JSON.stringify(feedback)
     );
   }, [feedback]);
@@ -40,19 +41,18 @@ function App() {
   };
 
   const reset = () => {
-    setFeedback({ ...feedback, good: 0, neutral: 0, bad: 0 });
+    setFeedback({ good: 0, neutral: 0, bad: 0 });
   };
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
-  const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
+
+  const positiveFeedback =
+    totalFeedback > 0 ? Math.round((feedback.good / totalFeedback) * 100) : 0;
 
   return (
     <div>
       <h1>Sip Happens Café</h1>
-      <p>
-        Please leave your feedback about our service by selecting one of the
-        options below.
-      </p>
+      <Description />
       <Options
         elOptions={elOptions}
         onClick={handleClick}
