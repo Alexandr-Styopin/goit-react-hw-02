@@ -24,7 +24,7 @@ function App() {
   });
 
   useEffect(() => {
-    const seveFeedback = window.localStorage.setItem(
+    const saveFeedback = window.localStorage.setItem(
       "saveFeedback",
       JSON.stringify(feedback)
     );
