@@ -31,6 +31,7 @@ function App() {
   }, [feedback]);
 
   const elOptions = Object.keys(feedback);
+  const message = "No feedback yet";
 
   const handleClick = (evt) => {
     updateFeedback(evt.target.name);
@@ -59,7 +60,7 @@ function App() {
         reset={reset}
       />
       {totalFeedback === 0 ? (
-        <Notification />
+        <Notification message={message} />
       ) : (
         <Feedback
           elOptions={elOptions}
