@@ -51,7 +51,6 @@ function App() {
 
   return (
     <div>
-      <h1>Sip Happens Café</h1>
       <Description />
       <Options
         elOptions={elOptions}
